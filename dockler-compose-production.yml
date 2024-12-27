@@ -1,0 +1,46 @@
+version: '3'
+
+volumes:
+  pg_data:
+  static:
+  media:
+  frontend_build:
+
+services:
+  postgres:
+    image: postgres:13
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - pg_data:/var/lib/postgresql/data/
+
+  kittygram_backend:
+    image: clarkefeed/kittygram_backend:latest
+    env_file: .env
+    restart: always
+    depends_on:
+      - postgres
+    volumes:
+      - static:/app/collected_static/
+      - media:/app/media/    
+
+  kittygram_frontend:
+    image: clarkefeed/kittygram_frontend:latest
+    env_file: .env
+    restart: always
+    volumes:
+      - frontend_build:/app/build/
+  
+  kittygram_gateway:
+    image: clarkefeed/kittygram_gateway:latest
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - frontend_build:/usr/share/nginx/html/
+      - static:/var/html/static/
+      - media:/var/html/media/
+    depends_on:
+      - backend
+      - frontend
