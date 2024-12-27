@@ -88,7 +88,6 @@ jobs:
             sudo docker compose -f docker-compose.production.yml up -d
             sudo docker compose -f docker-compose.production.yml exec kitty_backend python manage.py migrate
             sudo docker compose -f docker-compose.production.yml exec kitty_backend python manage.py collectstatic
-            sudo docker compose -f docker-compose.production.yml exec kitty_backend cp -r /app/collected_static/. /backend_static/static/
 
   auto_tests:
     name: Run Auto Tests

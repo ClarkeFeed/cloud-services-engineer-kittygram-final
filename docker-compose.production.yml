@@ -6,7 +6,7 @@ volumes:
 
 services:
   postgres:
-    image: postgres:13
+    image: postgres:13.10
     env_file:
       - .env
     ports:
@@ -35,7 +35,7 @@ services:
   kitty_gateway:
     image: clarkefeed/kittygram_gateway:latest
     ports:
-      - "12345:80"
+      - "80:80"
     restart: always
     volumes:
       - frontend_build:/usr/share/nginx/html/
