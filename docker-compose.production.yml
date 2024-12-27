@@ -15,7 +15,7 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data/
 
-  kittygram_backend:
+  kitty_backend:
     image: clarkefeed/kittygram_backend:latest
     env_file: .env
     restart: always
@@ -25,14 +25,14 @@ services:
       - static:/app/collected_static/
       - media:/app/media/    
 
-  kittygram_frontend:
+  kitty_frontend:
     image: clarkefeed/kittygram_frontend:latest
     env_file: .env
     restart: always
     volumes:
       - frontend_build:/app/build/
   
-  kittygram_gateway:
+  kitty_gateway:
     image: clarkefeed/kittygram_gateway:latest
     ports:
       - "80:80"
@@ -42,5 +42,5 @@ services:
       - static:/var/html/static/
       - media:/var/html/media/
     depends_on:
-      - backend
-      - frontend
+      - kitty_backend
+      - kitty_frontend
