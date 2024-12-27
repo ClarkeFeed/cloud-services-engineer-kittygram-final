@@ -33,7 +33,7 @@ services:
   kitty_gateway:
     image: clarkefeed/kittygram_gateway:latest
     ports:
-      - "80:80"
+      - "12345:80"
     restart: always
     volumes:
       - frontend_build:/usr/share/nginx/html/
