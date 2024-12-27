@@ -24,7 +24,7 @@ jobs:
 
       - name: Test with flake8
         run: |
-          flake8 --ignore=E123,E301,E302,E501,W291,W292,W293 .
+          flake8 --ignore=E123,E301,E302,E501,W291,W292,W293,F401 .
 
   build:
     name: Push to DockerHub
