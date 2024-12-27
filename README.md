@@ -22,3 +22,11 @@ dockerhub_username: ваш_логин_на_докерхабе
 - Проект Kittygram доступен по ссылке, указанной в `tests.yml`.
 - Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
 - В корне проекта есть файл `kittygram_workflow.yml`.
+
+## .env файл
+Он должен лежать в той же папке, куда будет загружаться docker-compose файл и должен быть в следующем формате:
+```yaml
+POSTGRES_DB=db_name
+POSTGRES_USER=user_name
+POSTGRES_PASSWORD=user_password
+```
