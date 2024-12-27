@@ -3,11 +3,13 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
+load_dotenv()
 
-DEBUG = True
+SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '84.201.151.157']
+DEBUG = os.getenv("DEBUG", False)
+
+ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', '*')]
 
 STATIC_ROOT = "/app/collected_static"
 
