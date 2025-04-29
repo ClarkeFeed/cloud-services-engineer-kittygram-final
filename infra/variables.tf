@@ -31,13 +31,11 @@ variable "ssh_key" {
 
 variable "cloud_id" {
   description = "Cloud ID"
-  default = "b1gsccs9u6pnkc77al98"
   type = string
 }
 
 variable "folder_id" {
   description = "Folder ID"
-  default = "b1g82d74ovgmnan1vate"
   type = string
 }
 
@@ -73,7 +71,7 @@ variable "memory" {
 
 variable "core_fraction" {
   type = string
-  default = "5"
+  default = "20"
 }
 
 variable "nat" {
