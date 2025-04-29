@@ -14,8 +14,6 @@ DEBUG = os.getenv("DEBUG") == "True"
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
-STATIC_ROOT = "/app/collected_static"
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
