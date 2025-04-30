@@ -20,7 +20,7 @@ services:
     env_file: .env
     restart: always
     depends_on:
-      - postgres
+      - kitty_postgres
     volumes:
       - static:/app/collected_static/
       - media:/app/media/    

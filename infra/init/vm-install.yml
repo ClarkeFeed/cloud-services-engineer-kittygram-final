@@ -16,6 +16,6 @@ write_files:
     permissions: "0740"
 
 runcmd:
-  - sleep 120
+  - sleep 30
   - sudo -i
   - /root/vm_prep.sh
