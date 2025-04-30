@@ -104,14 +104,14 @@ jobs:
           script: |
             cd /home/${{ secrets.SSH_USERNAME }}/kittygram
             sudo docker-compose -f docker-compose.production.yml pull
-            sudo docker-compose -f docker-compose.production.yml down
+            sudo docker-compose -f docker-compose.production.yml down -v
             sudo docker-compose -f docker-compose.production.yml up -d
 
             echo "Waiting 30 sec for the PostgreSQL container..."
             sleep 30
 
-            sudo docker-compose -f docker-compose.production.yml exec kitty_backend python manage.py migrate
-            sudo docker-compose -f docker-compose.production.yml exec kitty_backend python manage.py collectstatic --noinput
+            sudo docker-compose -f docker-compose.production.yml exec -T kitty_backend python manage.py migrate
+            sudo docker-compose -f docker-compose.production.yml exec -T kitty_backend python manage.py collectstatic --noinput
 
   auto_tests:
     name: Run Auto Tests
