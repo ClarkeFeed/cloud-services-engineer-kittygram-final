@@ -104,7 +104,7 @@ jobs:
           script: |
             cd /home/${{ secrets.SSH_USERNAME }}/kittygram
             docker-compose -f docker-compose.production.yml pull
-            docker-compose -f docker-compose.production.yml down -v
+            docker-compose -f docker-compose.production.yml down
             docker-compose -f docker-compose.production.yml up -d
 
             echo "Waiting 30 sec for the PostgreSQL container..."
