@@ -9,8 +9,10 @@ users:
 write_files:
   - content: |
       #!/bin/bash
-      curl -fsSL https://get.docker.com | bash
-    path: "/root/vm_prep.sh"
+      apt-get update
+      apt-get install -y docker.io docker-compose
+      usermod -aG docker user
+    path: /root/vm_prep.sh
     permissions: "0740"
 
 runcmd:

@@ -5,7 +5,7 @@ volumes:
   frontend_build:
 
 services:
-  postgres:
+  kitty_postgres:
     image: postgres:13.10
     env_file:
       - .env
